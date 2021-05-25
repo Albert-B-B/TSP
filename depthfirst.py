@@ -18,18 +18,27 @@ def depthFirst(graph,startVertex):
     baseList.remove(startVertex)
     combinations = itertools.permutations(baseList)
     bestTrail = next(combinations)
-    bestLength = graph.evalTrail(bestTrail)
+    bestLength = graph.evalTrail((startVertex,) + bestTrail + (startVertex,))
     for i in combinations:
-        i = (startVertex,) + i + (startVertex,)
-        if graph.evalTrail(i) < bestLength:
-            bestLength = graph.evalTrail(i)
+        if graph.evalTrail((startVertex,) + i + (startVertex,)) < bestLength:
+            bestLength = graph.evalTrail((startVertex,) + i + (startVertex,))
             bestTrail = i
-    return (bestTrail,bestLength)
+    return ((startVertex,)+bestTrail+(startVertex,),bestLength)
 if __name__ == "__main__":
     #canvas = canvasClass(500,500,"Graf")
     lastTime = time.time()
     i = 1
+    graph = graphClass()
+    graph.g = [
+        [0,2,12,11],
+        [2,0,6,4],
+        [12,6,0,8],
+        [11,4,8,0]
+        ]
+    graph.size = 4
+    print(depthFirst(graph,0))
     while  i <= 10:
+        break
         i += 1
         graf = graphClass()
         graf.generateRand(500,500,i)

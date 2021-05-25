@@ -53,6 +53,19 @@ class graphClass():
             for j in range(size):
                 tempList.append(distanceCities(self.cities[i], self.cities[j]))
             self.g.append(tempList)
+    
+    #Generates size different cities at random coordinates inside of 
+    #(0-width,0-height)
+    def generateByCities(self, cities):
+
+        self.cities = cities
+        self.g = []
+        
+        for i in range(len(cities)):
+            tempList = []
+            for j in range(len(cities)):
+                tempList.append(distanceCities(self.cities[i], self.cities[j]))
+            self.g.append(tempList)
             
     #Displays the cities
     def displayCities(self,canvas):
