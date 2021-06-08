@@ -92,5 +92,6 @@ if __name__ == "__main__":
     graph = graphClass()
     graph.generateRand(500,500,10)
     graph.displayCities(canvas)
+
     input("stop ")
     canvas.master.destroy()
