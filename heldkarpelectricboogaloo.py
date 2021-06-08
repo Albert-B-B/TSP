@@ -98,8 +98,9 @@ def held_karp(graph,startVertex):
 if __name__ == "__main__":
     graph = graphClass()
     for i in range(0,100):
-        graph.generateRand(500,500,11)
-        held_karp(graph,0)[1]
+        graph.generateRand(500,500,7)
+        if held_karp(graph,0)[1] != depthFirst(graph,0)[1]:
+            print("Error")
 
     # if held_karp(graph,0)[1] != depthFirst(graph,0)[1]:
     #     print(graph.g)
