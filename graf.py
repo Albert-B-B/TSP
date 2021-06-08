@@ -30,17 +30,14 @@ class canvasClass():
 #a hamilton cycle does exsit
 class graphClass():
     def __init__(self):
-        #List with cities coordinates
-        self.cities = []
-        #graph
-        self.g = []
-        #Trail trough
-        self.trail = []
-        
+        self.cities = [] #List with cities coordinates
+        self.g = []  #graph en form of adjacency matrix 
+        self.path = [] #Sotred path could be the shortest path
+        self.pathLength = 0 #Length of the path
         self.r = 5 #Radius of the circle drawn
-        self.vertexColor = "green"
+        self.vertexColor = "green" #Color of verticies
+        self.trailColor = "red" #Color of edges
         
-        self.trailColor = "red"
     #Generates size different cities at random coordinates inside of 
     #(0-width,0-height)
     def generateRand(self, width,height,size):
